@@ -1,6 +1,7 @@
 # SejtszamlaloFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.14.
+This project was made as my MSc Thesis project.
 
 ## Development server
 
