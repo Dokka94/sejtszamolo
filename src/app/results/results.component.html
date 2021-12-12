@@ -1,0 +1,25 @@
+<div *ngIf="message" class="text-center my-2" [ngClass]="{'alert-info': !error, 'alert-danger': error}">
+    <p class="px-5 py-2">{{message}}</p>
+</div>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Min</th>
+            <th>Color</th>
+            <th>Cell number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of resultItems; index as i">
+            <td>{{ item.meretMin }}</td>
+            <td  [ngStyle]="{'background-color': colors[i]}">(rgb:{{ item.red }},{{ item.green }},{{ item.blue }})</td>
+            <td>{{ item.countResult }}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="text-center">
+    <img [src]="resultImage" class="mx-auto p-5">
+</div>
+
+    

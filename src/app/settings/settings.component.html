@@ -1,0 +1,44 @@
+<div class="container p-5">
+	<form [formGroup]="colorForm">
+		<!-- RED -->
+		<div class="custom-slider">
+			<ngx-slider [options]="optionsRed" formControlName="redControl"></ngx-slider>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="selectedRed" value="On" id="redSelector" formControlName="selectedRed" (change)="redChange()">
+			<label class="form-check-label" for="redSelector">RED</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="selectedRed" value="Skip" id="skipRedSelector" formControlName="selectedRed" (change)="redChange()">
+			<label class="form-check-label" for="skipRedSelector">SKIP RED</label>
+		</div>
+		<!-- GREEN -->
+		<div class="custom-slider">
+			<ngx-slider [options]="optionsGreen" formControlName="greenControl"></ngx-slider>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="selectedGreen" value="On" id="greenSelector" formControlName="selectedGreen" (change)="greenChange()">
+			<label class="form-check-label" for="greenSelector">GREEN</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="selectedGreen" value="Skip" id="skipGreenSelector" formControlName="selectedGreen" (change)="greenChange()">
+			<label class="form-check-label" for="skipGreenSelector">SKIP GREEN</label>
+		</div>
+		<!-- BLUE -->
+		<div class="custom-slider">
+			<ngx-slider [options]="optionsBlue" formControlName="blueControl"></ngx-slider>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="selectedBlue" value="On" id="blueSelector" formControlName="selectedBlue" (change)="blueChange()">
+			<label class="form-check-label" for="blueSelector">BLUE</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="selectedBlue" value="Skip" id="skipBlueSelector" formControlName="selectedBlue" (change)="blueChange()">
+			<label class="form-check-label" for="skipBlueSelector">SKIP BLUE</label>
+		</div>
+
+		<button class="btn btn-primary" type="submit" (click)="submit()">Submit</button>
+	</form>
+	<hr>
+    <app-range-settings [rangeItems]="_rangeItems"></app-range-settings>
+</div>

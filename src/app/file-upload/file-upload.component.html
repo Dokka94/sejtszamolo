@@ -1,0 +1,38 @@
+<div>
+	<div *ngIf="message" class="alert-danger my-2">
+		<p class="px-5 py-2">{{ message }}</p>
+	</div>
+	<div class="form-row">
+		<div class="my-2 col form-group">
+			<label>Upload new file</label>
+			<input class="form-control" type="file"
+			(change)="onChange($event)">
+		</div>
+		<div class="col-2 my-1 align-self-end">
+			<button type="submit" (click)="onUpload()" class="m-1 btn btn-success">Upload</button>
+		</div>
+		<div class="my-2 col form-group">
+			<label>Open image</label>
+			<select class="custom-select" (change)="changeImage($event)" [ngModel]="selectedImage" name="selected">
+				<option *ngFor="let image of imageList" [ngValue]="image.id">{{image.name}}</option>
+			</select>
+		</div>
+		<div class="col-2 my-1 align-self-end">
+			<button type="submit" (click)="openImage()" class="m-1 btn btn-success">Open</button>
+		</div>
+	</div>
+	
+	<div class="my-2" *ngIf="loadingFile">
+		<h3>Loading ...</h3>
+	</div>
+	
+	
+	<!-- Button list -->
+	<div class="my-2 text-center">
+		<button type="button" class="btn btn-info m-1" (click)="clearImages()">Clear Images</button>
+	</div>
+
+	<!-- Settings -->
+	<app-settings [rmin]="colorFilter.rmin"  [rmax]="colorFilter.rmax"  [gmin]="colorFilter.gmin"  [gmax]="colorFilter.gmax"  [bmin]="colorFilter.bmin" [bmax]="colorFilter.bmax" [rangeItems]="rangeItems"></app-settings>
+
+</div>

@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+    <div formArrayName="settings">
+        <div class="row settingsHeader">
+            <div class="col-md-4">
+                <label>Min</label>
+            </div>
+            <div class="col-md-4">
+                <label>Color</label>
+            </div>
+            <div class="col-md-4">
+                <label>Actions</label>
+            </div>
+        </div>
+        <div *ngFor="let rangeItemForm of settings.controls; let idx = index">
+            <div class="form-row align-items-center table-striped" [formGroup]="rangeItemForm">
+                <div class="col-md-2 offset-md-1 form-group">
+                    <input class="form-control" type="number" formControlName="minCtr">
+                </div>
+                <div class="form-group col-md-2 offset-md-2">
+                    <input 
+                        class="form-control"
+                        [value]="rangeItemForm.value['colorCtr']" 
+                        (colorPickerChange)="onChangeColor($event, idx)" 
+                        [(colorPicker)]="rangeItemForm.value['colorCtr']" 
+                        [style.background]="rangeItemForm.value['colorCtr']"
+                        [cpOutputFormat]="'rgba'"/>
+                </div>
+                <div class=" form-group col-md-4 offset-md-1">
+                    <button class="btn btn-primary" (click)="addRangeItem(idx)">Add new row</button>
+                    <button class="btn btn-secondary" (click)="deleteRangeItem(idx)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" (click)="loadSettings()">Load settings</button>
+    <button class="btn btn-primary" (click)="addRangeItem()">Add</button>
+    <button class="btn btn-success" type="submit"(click)="onSubmit()" [disabled]="settings.length == 0 || !settings.valid">Submit</button>
+</form>
