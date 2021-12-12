@@ -82,8 +82,7 @@ export class FileUploadComponent implements OnInit {
 
   onUpload() {
     this.loadingFile = !this.loadingFile;
-    this.message = "Check console for errors. Error occurred in upload.";
-    /*this.fileUploadService.upload(this.selectedFile).subscribe(
+    this.fileUploadService.upload(this.selectedFile).subscribe(
       (response: ImageResponse) => {
         this.loadingFile = false;
         const imageId = response.imageId;
@@ -95,7 +94,7 @@ export class FileUploadComponent implements OnInit {
         this.message = "Check console for errors. Error occurred in upload.";
         console.log(err);
       }
-    );*/
+    );
   }
 
   getImage(imageId: number) {
